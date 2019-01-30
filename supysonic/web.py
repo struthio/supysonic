@@ -21,6 +21,7 @@ from .db import init_database
 
 logger = logging.getLogger(__package__)
 
+@app.route("/music")
 def create_application(config = None):
     global app
 
