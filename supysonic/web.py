@@ -75,7 +75,7 @@ def create_application(config = None):
         app.register_blueprint(frontend, url_prefix = '/music')
     if app.config['WEBAPP']['mount_api']:
         from .api import api
-        app.register_blueprint(api, url_prefix = '/rest')
+        app.register_blueprint(api, url_prefix = '/music/rest')
 
     return app
 
