@@ -21,7 +21,6 @@ from .db import init_database
 
 logger = logging.getLogger(__package__)
 
-@app.route("/music")
 def create_application(config = None):
     global app
 
@@ -73,7 +72,7 @@ def create_application(config = None):
     # Import app sections
     if app.config['WEBAPP']['mount_webui']:
         from .frontend import frontend
-        app.register_blueprint(frontend)
+        app.register_blueprint(frontend, url_prefix = '/music')
     if app.config['WEBAPP']['mount_api']:
         from .api import api
         app.register_blueprint(api, url_prefix = '/rest')
