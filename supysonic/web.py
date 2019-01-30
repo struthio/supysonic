@@ -25,8 +25,9 @@ def create_application(config = None):
     global app
 
     # Flask!
-    app = Flask(__name__)
+    app = Flask(__name__, static_url_path='/music/static')
     app.config.from_object('supysonic.config.DefaultConfig')
+#    static_folder
 
     if not config: # pragma: nocover
         config = IniConfig.from_common_locations()
